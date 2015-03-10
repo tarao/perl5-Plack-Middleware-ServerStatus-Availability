@@ -1,4 +1,5 @@
 requires 'Plack::Middleware';
+requires 'Plack::Builder';
 requires 'Plack::Request';
 requires 'Net::CIDR::Lite';
 requires 'Path::Class';
