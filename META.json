@@ -44,7 +44,6 @@
          "requires" : {
             "Net::CIDR::Lite" : "0",
             "Path::Class" : "0",
-            "Plack::Builder" : "0",
             "Plack::Middleware" : "0",
             "Plack::Request" : "0"
          }
@@ -53,6 +52,7 @@
          "requires" : {
             "HTTP::Request" : "0",
             "Plack" : "0",
+            "Plack::Builder" : "0",
             "Test::Base" : "0",
             "Test::More" : "0",
             "Test::Requires" : "0"
