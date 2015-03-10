@@ -116,3 +116,103 @@ package Plack::Middleware::ServerStatus::Availability;
 
 1;
 __END__
+
+=head1 NAME
+
+Plack::Middleware::ServerStatus::Availability - manually set server status
+
+=head1 SYNOPSIS
+
+    use Plack::Builder;
+
+
+    builder {
+        enable 'ServerStatus::Availability', (
+            path => {
+                status  => '/server/avail',
+                control => '/server/control/avail',
+            },
+            allow => [ '127.0.0.1', '192.168.0.0/16', '10.0.0.0/8' ],
+            file => '/tmp/server-up',
+        );
+        $app;
+    };
+
+    $ curl http://server:port/server/avail
+    503 Server is up but is under maintenance
+
+    $ curl -X POST http://server:port/admin/server/avail?action=up
+    200 Done
+
+    $ curl http://server:port/server/avail
+    503 Server is up but is under maintenance
+
+    $ curl http://server:port/server/avail
+    200 OK
+
+    $ curl -X POST http://server:port/admin/server/avail?action=down
+    200 Done
+
+    $ curl http://server:port/server/avail
+    503 Server is up but is under maintenance
+
+=head1 DESCRIPTION
+
+This middleware is intended to show a server status which is
+controllable by POST requests to the status control endpoint.  This is
+useful when you want to manually make a server under maintenance and
+automatically detached from a load balancer.
+
+=head1 CONFIGURATIONS
+
+=over 4
+
+=item path
+
+    path => {
+        status  => $status,
+        control => $control,
+    }
+
+C<$status> is a location to display the server status.  C<$control> is
+a location to C<POST> actions.  An action is specified by C<action>
+query parameter.  Its value C<up> and C<down> makes the server status
+to 'available' and 'unavailable' respectively.
+
+=item allow
+
+    allow => '127.0.0.1'
+    allow => [ '192.168.0.0/16', '10.0.0.0/8' ]
+
+Host based access control of the server status and status control
+endpoints.  Supports IPv6 address.
+
+=item file
+
+    file => $file
+
+Specifies a file to remember the availability.  The server is
+indicated to be available if the file exist.
+
+=back
+
+=head1 SEE ALSO
+
+L<Plack::Middleware::ServerStatus::Lite>
+
+=head1 ACKNOWLEDGEMENT
+
+This middleware is ported from L<Karasuma::Config::ServerStatus|https://github.com/wakaba/karasuma-config/blob/master/lib/Karasuma/Config/ServerStatus.pm> to C<Plack::Middleware>.
+
+=head1 LICENSE
+
+Copyright (C) INA Lintaro
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+INA Lintaro E<lt>tarao.gnn@gmail.comE<gt>
+
+=cut
