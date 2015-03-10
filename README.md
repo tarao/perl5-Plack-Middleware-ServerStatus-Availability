@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tarao/perl5-Plack-Middleware-ServerStatus-Availability.svg?branch=master)](https://travis-ci.org/tarao/perl5-Plack-Middleware-ServerStatus-Availability)
 # NAME
 
 Plack::Middleware::ServerStatus::Availability - manually set server status
