@@ -141,7 +141,7 @@ Plack::Middleware::ServerStatus::Availability - manually set server status
     $ curl http://server:port/server/avail
     503 Server is up but is under maintenance
 
-    $ curl -X POST http://server:port/admin/server/avail?action=up
+    $ curl -X POST http://server:port/server/control/avail?action=up
     200 Done
 
     $ curl http://server:port/server/avail
@@ -150,7 +150,7 @@ Plack::Middleware::ServerStatus::Availability - manually set server status
     $ curl http://server:port/server/avail
     200 OK
 
-    $ curl -X POST http://server:port/admin/server/avail?action=down
+    $ curl -X POST http://server:port/server/control/avail?action=down
     200 Done
 
     $ curl http://server:port/server/avail
