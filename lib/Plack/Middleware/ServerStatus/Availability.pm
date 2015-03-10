@@ -200,7 +200,7 @@ indicated to be available if the file exist.
 
 L<Plack::Middleware::ServerStatus::Lite>
 
-=head1 ACKNOWLEDGEMENT
+=head1 ACKNOWLEDGMENT
 
 This middleware is ported from L<Karasuma::Config::ServerStatus|https://github.com/wakaba/karasuma-config/blob/master/lib/Karasuma/Config/ServerStatus.pm> to C<Plack::Middleware>.
 

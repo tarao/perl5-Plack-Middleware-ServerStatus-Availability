@@ -78,7 +78,7 @@ automatically detached from a load balancer.
 
 [Plack::Middleware::ServerStatus::Lite](https://metacpan.org/pod/Plack::Middleware::ServerStatus::Lite)
 
-# ACKNOWLEDGEMENT
+# ACKNOWLEDGMENT
 
 This middleware is ported from [Karasuma::Config::ServerStatus](https://github.com/wakaba/karasuma-config/blob/master/lib/Karasuma/Config/ServerStatus.pm) to `Plack::Middleware`.
 
