@@ -77,5 +77,5 @@
          "web" : "https://github.com/tarao/perl5-Plack-Middleware-ServerStatus-Availability"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }

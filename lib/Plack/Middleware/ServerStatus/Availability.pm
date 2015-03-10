@@ -7,7 +7,7 @@ use Plack::Util::Accessor qw(path file allow);
 use Plack::Request;
 use Net::CIDR::Lite;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 sub prepare_app {
     my ($self) = @_;
